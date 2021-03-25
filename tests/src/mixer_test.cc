@@ -277,9 +277,8 @@ TEST_P(MixerControlsTest, Event) {
         GTEST_SKIP() << "No volume control was found in the controls list.";
     }
 
-    auto *local_mixer_object = mixer_object;
     int percent = mixer_ctl_get_percent(control, 0);
-    std::thread thread([local_mixer_object, control, percent] () {
+    std::thread thread([control, percent] () {
         std::this_thread::sleep_for(std::chrono::milliseconds(50));
         mixer_ctl_set_percent(
                 const_cast<mixer_ctl *>(control), 0,

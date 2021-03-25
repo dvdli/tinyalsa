@@ -35,6 +35,13 @@ cc_library(
         "src/*.h",
     ]),
     visibility = ["//visibility:public"],
+    # copts = [
+    #     "-fsanitize=undefined,integer",
+    # ],
+    # linkopts = [
+    #     "-fsanitize=undefined,integer",
+    #     "-lubsan",
+    # ],
 )
 
 cc_test(
@@ -53,5 +60,6 @@ cc_test(
     ],
     copts = [
         "-std=c++17",
+        "-Wall",
     ],
 )

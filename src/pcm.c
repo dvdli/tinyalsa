@@ -241,14 +241,14 @@ static void param_init(struct snd_pcm_hw_params *p)
     for (n = SNDRV_PCM_HW_PARAM_FIRST_MASK;
          n <= SNDRV_PCM_HW_PARAM_LAST_MASK; n++) {
             struct snd_mask *m = param_to_mask(p, n);
-            m->bits[0] = ~0;
-            m->bits[1] = ~0;
+            m->bits[0] = ~0U;
+            m->bits[1] = ~0U;
     }
     for (n = SNDRV_PCM_HW_PARAM_FIRST_INTERVAL;
          n <= SNDRV_PCM_HW_PARAM_LAST_INTERVAL; n++) {
             struct snd_interval *i = param_to_interval(p, n);
-            i->min = 0;
-            i->max = ~0;
+            i->min = 0U;
+            i->max = ~0U;
     }
     p->rmask = ~0U;
     p->cmask = 0;

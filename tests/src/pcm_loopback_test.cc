@@ -212,12 +212,12 @@ using Formats = ::testing::Types<S16bitlePcmFormat, FloatPcmFormat>;
 TYPED_TEST_SUITE(PcmLoopbackTest, Formats);
 
 TYPED_TEST(PcmLoopbackTest, Loopback) {
-    static constexpr unsigned int kDefaultChannels = this->kDefaultChannels;
-    static constexpr unsigned int kDefaultSamplingRate = this->kDefaultSamplingRate;
-    static constexpr unsigned int kDefaultPeriodSize = this->kDefaultPeriodSize;
-    // static constexpr unsigned int kDefaultPeriodCount = this->kDefaultPeriodCount;
-    static constexpr unsigned int kDefaultPeriodTimeInMs = this->kDefaultPeriodTimeInMs;
-    static constexpr pcm_format kPcmForamt = this->kPcmForamt;
+    static constexpr unsigned int kDefaultChannels = PcmLoopbackTest<TypeParam>::kDefaultChannels;
+    static constexpr unsigned int kDefaultSamplingRate = PcmLoopbackTest<TypeParam>::kDefaultSamplingRate;
+    static constexpr unsigned int kDefaultPeriodSize = PcmLoopbackTest<TypeParam>::kDefaultPeriodSize;
+    // static constexpr unsigned int kDefaultPeriodCount = PcmLoopbackTest<TypeParam>::kDefaultPeriodCount;
+    static constexpr unsigned int kDefaultPeriodTimeInMs = PcmLoopbackTest<TypeParam>::kDefaultPeriodTimeInMs;
+    static constexpr pcm_format kPcmForamt = PcmLoopbackTest<TypeParam>::kPcmForamt;
     pcm *pcm_in = this->pcm_in;
     pcm *pcm_out = this->pcm_out;
 
